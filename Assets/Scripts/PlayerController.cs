@@ -114,6 +114,11 @@ public class PlayerController : NetworkBehaviour {
     void Start () {
 
         cardDesk = GameObject.Find("GameManager").GetComponent<CardDesk>();
+        cardSockets = new GameObject[4];
+        for(int i=0; i<4; i++)
+        {
+            cardSockets[i] = GameObject.Find("Socket"+(i+1).ToString());
+        }
         SelectedCards = new int[4];
         for (int i = 0; i < 4; i++)
             SelectedCards[i] = -1;
