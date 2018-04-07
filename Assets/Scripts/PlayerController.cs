@@ -16,8 +16,8 @@ public class PlayerController : NetworkBehaviour {
 
     public enum PlayerState
     {
-        Idle,
-
+        NoDamaged,
+        Shooting,
     }
 
     public PlayerState playerState;
