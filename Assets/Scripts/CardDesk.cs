@@ -18,7 +18,7 @@ public class CardDesk : MonoBehaviour {
         totalSum = 0;
         foreach (Card card in cardDesk)
         {
-            totalSum += card._value;
+            totalSum += card._chanceCoefficient;
         }
     }
 

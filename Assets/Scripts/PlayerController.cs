@@ -30,9 +30,9 @@ public class PlayerController : NetworkBehaviour {
         for(int i=0; i<4; i++)
         {
            
-            var temp = Random.Range(0, cardDesk.totalSum);
+            int temp = Random.Range(0, (int)cardDesk.totalSum);
             int index = 0;
-            int sum = cardDesk.cardDesk[index]._chanceCoefficient;
+            uint sum = cardDesk.cardDesk[index]._chanceCoefficient;
             
             while (sum < temp)
             {
