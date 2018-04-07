@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : NetworkBehaviour {
 
     private bool m_ShotAxis = false;
-
+    
 
 
     public int[] AvailableCard;
 
+    
+
 
     [ClientRpc]
-    public void RPC_ShaffleCards()
+    public void Rpc_ShaffleCards()
     {
         
     }
@@ -45,6 +47,9 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         SelectedCards = new int[4] {-1,-1,-1,-1};
+        AvailableCard = new int[4];
+
+
 
 	}
 
