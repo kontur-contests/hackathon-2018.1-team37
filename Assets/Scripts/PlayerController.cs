@@ -50,9 +50,12 @@ public class PlayerController : NetworkBehaviour {
 
     }
 
+
     [ClientRpc]
     public void Rpc_Animate(ServerBehaviour.PlayerState roundResult)
     {
+
+        ready = false;
         switch (roundResult)
         {
             case ServerBehaviour.PlayerState.Damaged:
@@ -63,10 +66,9 @@ public class PlayerController : NetworkBehaviour {
                 break;
             case ServerBehaviour.PlayerState.Healed:
                 animator.SetTrigger("Healed");
-                break;
-            
-
+                break;        
         }
+
     }
 
     [ClientRpc]
@@ -80,13 +82,13 @@ public class PlayerController : NetworkBehaviour {
         set;
     }
 
-    [SyncVar]
-    public SyncListInt SelectedCards;
+    
+    public int[] SelectedCards;
     
     public int _maxHealth = 10;
 
 
-    [SyncVar]
+    
     public bool ready;
 
     [SyncVar]
@@ -110,9 +112,9 @@ public class PlayerController : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-        SelectedCards = new SyncListInt();
+        SelectedCards = new int[4];
         for (int i = 0; i < 4; i++)
-            SelectedCards.Add(-1);
+            SelectedCards[i] = -1;
         AvailableCards = new int[4];
         animator = GetComponent<Animator>();
         animator.SetTrigger("NoDamaged");
