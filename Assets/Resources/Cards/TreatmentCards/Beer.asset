@@ -15,5 +15,5 @@ MonoBehaviour:
   _ActionType: 3
   _value: 1
   _chanceCoefficient: 70
-  _NotSelectedImage: {fileID: 0}
-  _SelectedImage: {fileID: 0}
+  _NotSelectedImage: {fileID: 21300000, guid: 850328bc231d6444fa943e29f619650f, type: 3}
+  _SelectedImage: {fileID: 21300000, guid: f3c44e532e23794449a8a44d9a3dfa28, type: 3}
