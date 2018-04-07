@@ -112,6 +112,8 @@ public class PlayerController : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        cardDesk = GameObject.Find("GameManager").GetComponent<CardDesk>();
         SelectedCards = new int[4];
         for (int i = 0; i < 4; i++)
             SelectedCards[i] = -1;
