@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: ca495f954570de84d97858ab2ecde641
-timeCreated: 1523115776
+guid: 8507fc3f607f7bb46a149d45696f8644
+timeCreated: 1523115774
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: CowboyDamageRED-sheet_0
-    21300002: CowboyDamageRED-sheet_1
-    21300004: CowboyDamageRED-sheet_2
+    21300000: CowboyDodgeBLUE-sheet_0
+    21300002: CowboyDodgeBLUE-sheet_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -84,13 +83,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CowboyDamageRED-sheet_0
+      name: CowboyDodgeBLUE-sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 320
-        height: 480
+        x: 100
+        y: 40
+        width: 180
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -98,27 +97,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CowboyDamageRED-sheet_1
+      name: CowboyDodgeBLUE-sheet_1
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 320
-        height: 480
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: CowboyDamageRED-sheet_2
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 320
-        height: 480
+        x: 390
+        y: 40
+        width: 190
+        height: 440
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

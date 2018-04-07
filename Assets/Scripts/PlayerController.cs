@@ -7,13 +7,20 @@ public class PlayerController : NetworkBehaviour {
 
     private bool m_ShotAxis = false;
 
-
-
+    public GameObject[] cardSockets;
+    
     public CardDesk cardDesk;
     public int[] AvailableCards;
 
-    
+    private Animator animator;
 
+    public enum PlayerState
+    {
+        Idle,
+
+    }
+
+    public PlayerState playerState;
 
     [ClientRpc]
     public void Rpc_ShaffleCards()
@@ -36,12 +43,30 @@ public class PlayerController : NetworkBehaviour {
         }
         for (int i = 0; i < 4; i++)
             SelectedCards[i] = -1;    
+        for (int i=0; i<4; i++)
+        {
+            cardSockets[i].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[i]]._Image;
+        }
+
     }
 
     [ClientRpc]
-    public void Rpc_Animate()
+    public void Rpc_Animate(ServerBehaviour.PlayerState roundResult)
     {
+        switch (roundResult)
+        {
+            case ServerBehaviour.PlayerState.Damaged:
+                animator.SetTrigger("Damaged");
+                break;
+            case ServerBehaviour.PlayerState.None:
+                animator.SetTrigger("NoDamaged");
+                break;
+            case ServerBehaviour.PlayerState.Healed:
+                animator.SetTrigger("Healed");
+                break;
+            
 
+        }
     }
 
     [ClientRpc]
@@ -89,7 +114,8 @@ public class PlayerController : NetworkBehaviour {
         for (int i = 0; i < 4; i++)
             SelectedCards.Add(-1);
         AvailableCards = new int[4];
-
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("NoDamaged");
        
 
 
