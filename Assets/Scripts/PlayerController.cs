@@ -21,7 +21,7 @@ public class PlayerController : NetworkBehaviour {
     }
 
     [SyncVar]
-    public int[] SelectedCards;
+    public SyncListInt SelectedCards;
     
     public int _maxHealth = 10;
 
@@ -46,7 +46,9 @@ public class PlayerController : NetworkBehaviour {
 
     // Use this for initialization
     void Start () {
-        SelectedCards = new int[4] {-1,-1,-1,-1};
+        SelectedCards = new SyncListInt();
+        for (int i = 0; i < 4; i++)
+            SelectedCards.Add(-1);
         AvailableCard = new int[4];
 
 
