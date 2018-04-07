@@ -113,6 +113,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &29929534
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995733107494910, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
+      propertyPath: m_Name
+      value: Player (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &240861446
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,11 +249,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.224518
+      value: -6.45
       objectReference: {fileID: 0}
     - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.07237826
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4736847863568208, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -236,43 +282,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5841226ffeaf40347b7b9ec2f8480b2e, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &300854891 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1995733107494910, guid: 5841226ffeaf40347b7b9ec2f8480b2e,
-    type: 2}
-  m_PrefabInternal: {fileID: 300854890}
---- !u!114 &300854892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 300854891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 88
-    i1: 65
-    i2: 34
-    i3: 111
-    i4: 254
-    i5: 175
-    i6: 64
-    i7: 52
-    i8: 123
-    i9: 123
-    i10: 158
-    i11: 194
-    i12: 248
-    i13: 72
-    i14: 11
-    i15: 46
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!1 &340036543
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +322,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 340036543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -822479833, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 1299402701a1c464a985c52f01c8e0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 7777
@@ -325,11 +334,12 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 300854891}
+  m_PlayerPrefab: {fileID: 1418095920273170, guid: 014d2b2d0bd4f3142a089f2d5d94dfc6,
+    type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
-  m_OfflineScene: 
-  m_OnlineScene: 
+  m_OfflineScene: Multiplayer Test
+  m_OnlineScene: Multiplayer Test
   m_SpawnPrefabs: []
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -386,6 +396,7 @@ MonoBehaviour:
   matchSize: 2
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+  maxPlayers: 2
 --- !u!4 &340036546
 Transform:
   m_ObjectHideFlags: 0

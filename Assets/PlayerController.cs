@@ -1,8 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class PlayerController : NetworkBehaviour {
+
+    public int id
+    {
+        get;
+        set;
+    }
 
 	// Use this for initialization
 	void Start () {
