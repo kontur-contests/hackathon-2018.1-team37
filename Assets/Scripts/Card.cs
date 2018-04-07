@@ -19,6 +19,7 @@ public class Card : ScriptableObject {
 	public Action _ActionType;
 	public uint _value;
 	public int _chanceCoefficient;
-	public Sprite _Image;
+	public Sprite _NotSelectedImage;
+    public Sprite _SelectedImage;
 
 }

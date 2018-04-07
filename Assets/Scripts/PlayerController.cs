@@ -45,7 +45,7 @@ public class PlayerController : NetworkBehaviour {
             SelectedCards[i] = -1;    
         for (int i=0; i<4; i++)
         {
-            cardSockets[i].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[i]]._Image;
+            cardSockets[i].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[i]]._NotSelectedImage;
         }
 
     }
@@ -139,9 +139,13 @@ public class PlayerController : NetworkBehaviour {
         if (SelectedCards[socketIndex] == -1)
         {
             SelectedCards[socketIndex] = AvailableCards[socketIndex];
+            cardSockets[socketIndex].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[socketIndex]]._SelectedImage;
         }
         else
+        {
             SelectedCards[socketIndex] = -1;
+            cardSockets[socketIndex].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[socketIndex]]._NotSelectedImage;
+        }
 
     }
 
