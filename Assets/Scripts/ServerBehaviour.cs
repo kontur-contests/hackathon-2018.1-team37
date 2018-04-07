@@ -14,6 +14,11 @@ public class ServerBehaviour : NetworkBehaviour
         Round, Animation, Start, Finish, Pause, Connecting
     }
 
+    public enum PlayerState
+    {
+        Healed, Damaged, None 
+    }
+
     public List<GameObject> players = new List<GameObject>();
 
     // Use this for initialization
@@ -36,6 +41,18 @@ public class ServerBehaviour : NetworkBehaviour
         foreach (GameObject player in players)
         {
             player.GetComponent<PlayerController>().Rpc_Animate();
+        }
+    }
+
+    public void ApplyActions()
+    {
+        foreach (GameObject playerObject in players)
+        {
+            PlayerController player = playerObject.GetComponent<PlayerController>();
+            foreach(int i in player.SelectedCards)
+            {
+                Card card = GameObject.Find("GameManager").GetComponent<CardDesk>().cardDesk[i];
+            }
         }
     }
 

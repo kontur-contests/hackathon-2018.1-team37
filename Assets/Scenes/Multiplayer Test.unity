@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 340036545}
   - component: {fileID: 340036544}
   - component: {fileID: 340036547}
+  - component: {fileID: 340036548}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -423,6 +424,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780c9cad0c8e24741b73119620343d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &340036548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 340036543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b345845b6d8178745a9cddfe567790e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDesk: []
+  totalSum: 0
 --- !u!1 &911700430 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1418095920273170, guid: 014d2b2d0bd4f3142a089f2d5d94dfc6,
@@ -439,8 +453,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3444b320310aa04e9e3357387030768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AvailableCard: 
+  cardDesk: {fileID: 0}
+  AvailableCards: 
   _maxHealth: 10
+  ready: 0
   Health: 0
 --- !u!1001 &1403632660
 Prefab:
@@ -544,6 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b85c53de0a92f44a7df48c5d58a322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 5
   players: []
 --- !u!4 &1658657919
 Transform:
