@@ -17,7 +17,7 @@ public class Card : ScriptableObject {
 
 	public string _cardName;
 	public Action _ActionType;
-	public int _value;
+	public uint _value;
 	public float _dropChance;
 	public Material _Image;
 
