@@ -6,10 +6,11 @@ using UnityEngine.Networking;
 public class PlayerController : NetworkBehaviour {
 
     private bool m_ShotAxis = false;
-    
 
 
-    public int[] AvailableCard;
+
+    public CardDesk cardDesk;
+    public int[] AvailableCards;
 
     
 
@@ -17,7 +18,34 @@ public class PlayerController : NetworkBehaviour {
     [ClientRpc]
     public void Rpc_ShaffleCards()
     {
-        
+           
+
+        for(int i=0; i<4; i++)
+        {
+           
+            var temp = Random.Range(0, cardDesk.totalSum);
+            int index = 0;
+            int sum = cardDesk.cardDesk[index]._chanceCoefficent;
+            
+            while (sum < temp)
+            {
+                index++;
+                sum+= cardDesk.cardDesk[index]._chanceCoefficent;
+            }
+            AvailableCards[i] = index;
+        }       
+    }
+
+    [ClientRpc]
+    public void Rpc_Animate()
+    {
+
+    }
+
+    [ClientRpc]
+    public void Rpc_Finish()
+    {
+
     }
 
     public int ID {
@@ -29,6 +57,10 @@ public class PlayerController : NetworkBehaviour {
     public SyncListInt SelectedCards;
     
     public int _maxHealth = 10;
+
+
+    [SyncVar]
+    public bool ready;
 
     [SyncVar]
     public int Health;
@@ -54,14 +86,15 @@ public class PlayerController : NetworkBehaviour {
         SelectedCards = new SyncListInt();
         for (int i = 0; i < 4; i++)
             SelectedCards.Add(-1);
-        AvailableCard = new int[4];
+        AvailableCards = new int[4];
+
+       
+
+
+    }
 
 
 
-	}
-
-
-    
 
     // Update is called once per frame
     void Update () {
