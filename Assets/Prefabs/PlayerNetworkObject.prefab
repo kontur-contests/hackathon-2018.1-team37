@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4777822597513046}
   - component: {fileID: 114747449392543312}
+  - component: {fileID: 114658068159453898}
   m_Layer: 0
   m_Name: PlayerNetworkObject
   m_TagString: Untagged
@@ -40,6 +41,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114658068159453898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418095920273170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3444b320310aa04e9e3357387030768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSockets: []
+  cardDesk: {fileID: 0}
+  AvailableCards: 
+  playerState: 0
+  _maxHealth: 10
+  ready: 0
+  Health: 0
 --- !u!114 &114747449392543312
 MonoBehaviour:
   m_ObjectHideFlags: 1

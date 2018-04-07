@@ -47,6 +47,7 @@ public class ServerBehaviour : NetworkBehaviour
         state = State.Animation;
         foreach (GameObject player in players)
         {
+            player.GetComponent<PlayerController>().ready = false;
             player.GetComponent<PlayerController>().Rpc_Animate(nextState);
         }
     }
