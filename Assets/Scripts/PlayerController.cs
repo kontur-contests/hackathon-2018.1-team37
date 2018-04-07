@@ -1,49 +1,100 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class PlayerController : MonoBehaviour {
 
+    private bool m_ShotAxis = false;
+
+
+
+    public int[] AvailableCard;
+
+
+    [ClientRpc]
+    public void RPC_ShaffleCards()
+    {
+        
+    }
+
+    [SyncVar]
+    public int[] SelectedCards;
     
-	// Use this for initialization
-	void Start () {
-		
+    public int _maxHealth = 10;
+
+    [SyncVar]
+    public int Health;
+    
+    public bool IsAlive
+    {
+        get
+        {
+            return Health > 0;
+        }
+
+        set
+        {
+
+        }
+    }
+
+  
+
+
+    // Use this for initialization
+    void Start () {
+        SelectedCards = new int[4] {-1,-1,-1,-1};
+
 	}
 
 
-    private bool m_ShotAxis = false;
+    
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetButtonDown("Socket1")){
+
+        GetPlayerInput();
+        
+
+
+    }
+    
+
+
+
+    private void GetPlayerInput()
+    {
+
+        if (Input.GetButtonDown("Socket1"))
+        {
+            
             Debug.Log("A");
         }
         if (Input.GetButtonDown("Socket2"))
         {
             Debug.Log("X");
         }
-        if (Input.GetButtonDown("Socket3") )
+        if (Input.GetButtonDown("Socket3"))
         {
             Debug.Log("Y");
         }
-        
-        if(Input.GetButtonDown("Socket4"))
+
+        if (Input.GetButtonDown("Socket4"))
         {
             Debug.Log("B");
         }
-
-      
-
-
-
 
         //Gamepad Shot
         if (Input.GetAxisRaw("Shot") != 0)
         {
             if (m_ShotAxis == false)
             {
-                Debug.Log("RT");
+
                 // Call your event function here.
+                Debug.Log("RT");
+
+
                 m_ShotAxis = true;
             }
         }
@@ -52,4 +103,8 @@ public class PlayerController : MonoBehaviour {
             m_ShotAxis = false;
         }
     }
+
+
 }
+
+
