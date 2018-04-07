@@ -15,9 +15,10 @@ public enum Action
 [CreateAssetMenu(fileName = "Card", menuName = "WildCard/Card", order = 1)]
 public class Card : ScriptableObject {
 
+	public string _cardName;
 	public Action _ActionType;
 	public int _value;
 	public float _dropChance;
-	public Texture Texture;
+	public Material Texture;
 
 }
