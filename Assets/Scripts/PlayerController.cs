@@ -53,7 +53,7 @@ public class PlayerController : NetworkBehaviour {
 
     [ClientRpc]
     public void Rpc_Animate(ServerBehaviour.PlayerState roundResult)
-    {
+    {   
 
         ready = false;
         switch (roundResult)
@@ -128,9 +128,9 @@ public class PlayerController : NetworkBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        GetPlayerInput();
-        
+        if(isLocalPlayer)
+            GetPlayerInput();
+                
 
 
     }
