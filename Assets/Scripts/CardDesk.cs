@@ -7,18 +7,20 @@ public class CardDesk : ScriptableObject {
 
 
 
-    public List<Card> cardDesk;
+    public Card[] cardDesk;
+    public uint totalSum;
 	
     
     // Use this for initialization
 	void Start () {
-        var cards = Resources.LoadAll("Cards", typeof(Card)).Cast<Card>().ToArray();
+        cardDesk = Resources.LoadAll("Cards", typeof(Card)).Cast<Card>().ToArray();
 
-        for(int i = 0; i < cards.Length; i++)
+        totalSum = 0;
+        foreach (Card card in cardDesk)
         {
-            cardDesk.Add(cards[i]);
+            totalSum += card._value;
         }
-	}
+    }
 
 
 	
