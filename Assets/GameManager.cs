@@ -14,13 +14,13 @@ public class GameManager : NetworkManager {
     {
         server = GameObject.Find("GameServer");
         var player = (GameObject)GameObject.Instantiate(playerPrefab, new Vector3(0,0,0), Quaternion.identity);
-        player.GetComponent<PlayerController>().id = playerControllerId;
+        player.GetComponent<PlayerController>().ID = playerControllerId;
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
         server.GetComponent<ServerBehaviour>().players.Add(player);
         Debug.Log(playerControllerId);
         if(players.Count > 1)
         {
-            server.GetComponent<ServerBehaviour>().StartRound();
+            server.GetComponent<ServerBehaviour>().state = ServerBehaviour.State.Start;
         }
     }
 
