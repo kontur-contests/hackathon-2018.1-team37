@@ -178,7 +178,7 @@ public class PlayerController : NetworkBehaviour {
             if (m_ShotAxis == false)
             {
 
-                FinishRound();
+                Cmd_FinishRound();
                 Debug.Log("RT");
 
 
@@ -193,7 +193,7 @@ public class PlayerController : NetworkBehaviour {
     }
 
     [Command]
-    public void FinishRound()
+    public void Cmd_FinishRound()
     {
         GameObject.Find("GameServer").GetComponent<ServerBehaviour>().FinishRound();
     }
