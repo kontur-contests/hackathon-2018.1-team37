@@ -94,6 +94,15 @@ public class ServerBehaviour : NetworkBehaviour
         return PlayerState.NoDamaged;
     }
 
+    public void FinishRound()
+    {
+        PlayerState nextState = ApplyActions();
+        if (players[0].GetComponent<PlayerController>().IsAlive && players[1].GetComponent<PlayerController>().IsAlive)
+            Animate(nextState);
+        else
+            state = State.Finish;
+    }
+
     // Update is called once per frame
     void Update () {
         if (state.Equals(State.Start) || state.Equals(State.Animation))
@@ -101,18 +110,14 @@ public class ServerBehaviour : NetworkBehaviour
             if (players[0].GetComponent<PlayerController>().ready && players[1].GetComponent<PlayerController>().ready)
                 StartRound();
         }
-        if (state.Equals(State.Round))
+        else if (state.Equals(State.Round))
         {
             if(endTime < Time.fixedTime)
             {
-                PlayerState nextState = ApplyActions();
-                if (players[0].GetComponent<PlayerController>().IsAlive && players[1].GetComponent<PlayerController>().IsAlive)
-                    Animate(nextState);
-                else
-                    state = State.Finish;
+                FinishRound();
             }
         }
-        if (state.Equals(State.Finish))
+        else if (state.Equals(State.Finish))
         {
             foreach (GameObject player in players)
             {
