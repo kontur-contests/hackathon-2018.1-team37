@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Action
+public enum Action
 {
 	Damage,
 	Heal,
@@ -15,7 +15,4 @@ public class Card : ScriptableObject {
 	public Action type;
 	public int value;
 
-
-	
-	
 }
