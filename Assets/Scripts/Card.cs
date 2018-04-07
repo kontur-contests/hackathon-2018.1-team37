@@ -19,6 +19,6 @@ public class Card : ScriptableObject {
 	public Action _ActionType;
 	public int _value;
 	public float _dropChance;
-	public Material Texture;
+	public Material _Image;
 
 }
