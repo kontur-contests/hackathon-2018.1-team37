@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+enum Action
+{
+	Damage,
+	Heal,
+	Evade
+}
+
+
 public class Card : ScriptableObject {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	public Action type;
+	public int value;
+
+
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	
 }
