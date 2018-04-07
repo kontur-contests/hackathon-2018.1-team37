@@ -20,6 +20,11 @@ public class PlayerController : NetworkBehaviour {
         
     }
 
+    public int ID {
+        get;
+        set;
+    }
+
     [SyncVar]
     public SyncListInt SelectedCards;
     
