@@ -25,12 +25,12 @@ public class PlayerController : NetworkBehaviour {
            
             var temp = Random.Range(0, cardDesk.totalSum);
             int index = 0;
-            int sum = cardDesk.cardDesk[index]._chanceCoefficent;
+            int sum = cardDesk.cardDesk[index]._chanceCoefficient;
             
             while (sum < temp)
             {
                 index++;
-                sum+= cardDesk.cardDesk[index]._chanceCoefficent;
+                sum+= cardDesk.cardDesk[index]._chanceCoefficient;
             }
             AvailableCards[i] = index;
         }       
