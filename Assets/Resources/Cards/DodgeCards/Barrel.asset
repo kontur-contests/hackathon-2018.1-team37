@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8cb7ba34f3a5ac40af1a1516c33e16e, type: 3}
   m_Name: Barrel
   m_EditorClassIdentifier: 
-  _cardName: 
-  _ActionType: 0
-  _value: 0
-  _dropChance: 0
-  _Image: {fileID: 0}
+  _cardName: Barrel
+  _ActionType: 4
+  _value: 2
+  _chanceCoefficient: 25
+  _NotSelectedImage: {fileID: 0}
+  _SelectedImage: {fileID: 0}

@@ -14,5 +14,6 @@ MonoBehaviour:
   _cardName: Headshot
   _ActionType: 0
   _value: 3
-  _dropChance: 10
-  Texture: {fileID: 0}
+  _chanceCoefficient: 5
+  _NotSelectedImage: {fileID: 0}
+  _SelectedImage: {fileID: 0}
