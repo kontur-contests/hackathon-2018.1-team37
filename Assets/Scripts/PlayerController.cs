@@ -58,7 +58,7 @@ public class PlayerController : NetworkBehaviour {
             case ServerBehaviour.PlayerState.Damaged:
                 animator.SetTrigger("Damaged");
                 break;
-            case ServerBehaviour.PlayerState.None:
+            case ServerBehaviour.PlayerState.NoDamaged:
                 animator.SetTrigger("NoDamaged");
                 break;
             case ServerBehaviour.PlayerState.Healed:
