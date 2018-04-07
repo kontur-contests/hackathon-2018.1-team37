@@ -118,6 +118,7 @@ public class PlayerController : NetworkBehaviour {
         AvailableCards = new int[4];
         animator = GetComponent<Animator>();
         animator.SetTrigger("NoDamaged");
+        ready = false;
        
 
 
@@ -191,6 +192,12 @@ public class PlayerController : NetworkBehaviour {
         if (Input.GetAxisRaw("Shot") == 0)
         {
             m_ShotAxis = false;
+        }
+
+        if (Input.GetButtonDown("Start"))
+        {
+            ready = true;
+            Debug.Log("Start");
         }
     }
 
