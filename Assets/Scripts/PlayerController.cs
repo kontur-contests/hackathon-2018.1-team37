@@ -33,7 +33,9 @@ public class PlayerController : NetworkBehaviour {
                 sum+= cardDesk.cardDesk[index]._chanceCoefficient;
             }
             AvailableCards[i] = index;
-        }       
+        }
+        for (int i = 0; i < 4; i++)
+            SelectedCards[i] = -1;    
     }
 
     [ClientRpc]
@@ -106,28 +108,38 @@ public class PlayerController : NetworkBehaviour {
     }
     
 
+    private void SetCard(int socketIndex)
+    {
+        if (SelectedCards[socketIndex] == -1)
+        {
+            SelectedCards[socketIndex] = AvailableCards[socketIndex];
+        }
+        else
+            SelectedCards[socketIndex] = -1;
 
+    }
 
     private void GetPlayerInput()
     {
 
         if (Input.GetButtonDown("Socket1"))
         {
-            
-            Debug.Log("A");
+            SetCard(0);
         }
+
         if (Input.GetButtonDown("Socket2"))
         {
-            Debug.Log("X");
+            SetCard(1);
         }
+
         if (Input.GetButtonDown("Socket3"))
         {
-            Debug.Log("Y");
+            SetCard(2);
         }
 
         if (Input.GetButtonDown("Socket4"))
         {
-            Debug.Log("B");
+            SetCard(3);
         }
 
         //Gamepad Shot
@@ -143,6 +155,7 @@ public class PlayerController : NetworkBehaviour {
                 m_ShotAxis = true;
             }
         }
+
         if (Input.GetAxisRaw("Shot") == 0)
         {
             m_ShotAxis = false;
