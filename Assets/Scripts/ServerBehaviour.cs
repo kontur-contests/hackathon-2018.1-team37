@@ -108,8 +108,13 @@ public class ServerBehaviour : NetworkBehaviour
     void Update () {
         if (state.Equals(State.Start) || state.Equals(State.Animation))
         {
-            if (players[0].GetComponent<PlayerController>().ready && players[1].GetComponent<PlayerController>().ready)
+            bool pl2ready = players[1].GetComponent<PlayerController>().ready;
+            bool pl1ready = players[0].GetComponent<PlayerController>().ready;
+            if (pl1ready && pl2ready)
+            {
+                Debug.Log("Both true");
                 StartRound();
+            }
         }
         else if (state.Equals(State.Round))
         {

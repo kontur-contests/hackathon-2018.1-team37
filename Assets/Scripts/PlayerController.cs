@@ -53,9 +53,9 @@ public class PlayerController : NetworkBehaviour {
 
     [ClientRpc]
     public void Rpc_Animate(ServerBehaviour.PlayerState roundResult)
-    {   
+    {
 
-        ready = false;
+        Cmd_SetReady(false);
         switch (roundResult)
         {
             case ServerBehaviour.PlayerState.Damaged:
@@ -88,7 +88,7 @@ public class PlayerController : NetworkBehaviour {
     public int _maxHealth = 10;
 
 
-    
+    [SyncVar]
     public bool ready;
 
     [SyncVar]
@@ -118,7 +118,7 @@ public class PlayerController : NetworkBehaviour {
         AvailableCards = new int[4];
         animator = GetComponent<Animator>();
         animator.SetTrigger("NoDamaged");
-        ready = false;
+        Cmd_SetReady(false);
        
 
 
@@ -129,6 +129,7 @@ public class PlayerController : NetworkBehaviour {
 
     // Update is called once per frame
     void Update () {
+
         if(isLocalPlayer)
             GetPlayerInput();
                 
@@ -196,7 +197,7 @@ public class PlayerController : NetworkBehaviour {
 
         if (Input.GetButtonDown("Start"))
         {
-            ready = true;
+            Cmd_SetReady(true);
             Debug.Log("Start");
         }
     }
@@ -205,6 +206,12 @@ public class PlayerController : NetworkBehaviour {
     public void Cmd_FinishRound()
     {
         GameObject.Find("GameServer").GetComponent<ServerBehaviour>().FinishRound();
+    }
+
+    [Command]
+    public void Cmd_SetReady(bool status)
+    {
+        ready = status;
     }
 
 }
