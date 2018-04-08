@@ -47,3 +47,6 @@ TagManager:
   - name: Cards
     uniqueID: 138054285
     locked: 0
+  - name: Buttons
+    uniqueID: 2428287031
+    locked: 0
