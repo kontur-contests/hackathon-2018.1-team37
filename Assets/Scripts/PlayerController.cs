@@ -50,6 +50,8 @@ public class PlayerController : NetworkBehaviour {
                 cardSockets[i].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[i]]._NotSelectedImage;
             }
             animator.SetTrigger("Attack");
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
         }
     }
 

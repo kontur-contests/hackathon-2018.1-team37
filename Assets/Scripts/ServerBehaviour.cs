@@ -5,8 +5,8 @@ using UnityEngine.Networking;
 
 public class ServerBehaviour : NetworkBehaviour
 {
-    public const double roundTime = 3;
-    private double endTime;
+    public const double roundTime = 10;
+    public double endTime;
     public State state = State.Connecting;
 
     private struct PlayerActionStruct

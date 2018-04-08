@@ -14,6 +14,8 @@ public class UIController : MonoBehaviour {
     public Text blueReady;
     public Text redReady;
 
+    public Text timer;
+
     // Use this for initialization
     void Start () {
         
@@ -21,6 +23,11 @@ public class UIController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        
+
+
+
         GameObject blueGameobj = GameObject.Find("Cowboy(Clone)");
         GameObject redGameobj = GameObject.Find("CowboyRed(Clone)");
         if (blueGameobj != null && redGameobj != null) { 
