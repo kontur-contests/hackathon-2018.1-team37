@@ -42,17 +42,17 @@ public class ServerBehaviour : NetworkBehaviour
         }
     }
 
-    public void Animate(PlayerState nextState)
+    public void Animate(PlayerState[] nextStates)
     {
         state = State.Animation;
-        foreach (GameObject player in players)
+        for(int i = 0; i < players.Count; i++)
         {
             //player.GetComponent<PlayerController>().ready = false;
-            player.GetComponent<PlayerController>().Rpc_Animate(nextState);
+            players[i].GetComponent<PlayerController>().Rpc_Animate(nextStates[i]);
         }
     }
 
-    public PlayerState ApplyActions()
+    public PlayerState[] ApplyActions()
     {
         PlayerActionStruct[] playerActions = new PlayerActionStruct[2];
         for (int i = 0; i < players[0].GetComponent<PlayerController>().SelectedCards.Length; i++)
@@ -84,22 +84,28 @@ public class ServerBehaviour : NetworkBehaviour
                 }
             }
         }
-        int player0HP = players[0].GetComponent<PlayerController>().Health - 
-            Mathf.Max(0, playerActions[0].damage - playerActions[0].evade) +
-            playerActions[0].heal;
-        player0HP = Mathf.Min(players[0].GetComponent<PlayerController>()._maxHealth, player0HP);
-        if (player0HP > players[0].GetComponent<PlayerController>().Health)
-            return PlayerState.Healed;
-        if (player0HP < players[0].GetComponent<PlayerController>().Health)
-            return PlayerState.Damaged;
-        return PlayerState.NoDamaged;
+        PlayerState[] playerStates = new PlayerState[2];
+        for (int j = 0; j < 2; j++)
+        {
+            int playerHP = players[j].GetComponent<PlayerController>().Health -
+            Mathf.Max(j, playerActions[j].damage - playerActions[j].evade) +
+            playerActions[j].heal;
+            playerHP = Mathf.Min(players[j].GetComponent<PlayerController>()._maxHealth, playerHP);
+            if (playerHP > players[j].GetComponent<PlayerController>().Health)
+                playerStates[j] = PlayerState.Healed;
+            else if (playerHP < players[j].GetComponent<PlayerController>().Health)
+                playerStates[j] = PlayerState.Damaged;
+            else
+                playerStates[j] = PlayerState.NoDamaged;
+        }
+        return playerStates;
     }
 
     public void FinishRound()
     {
-        PlayerState nextState = ApplyActions();
+        PlayerState[] nextStates = ApplyActions();
         if (players[0].GetComponent<PlayerController>().IsAlive && players[1].GetComponent<PlayerController>().IsAlive)
-            Animate(nextState);
+            Animate(nextStates);
         else
             state = State.Finish;
     }
