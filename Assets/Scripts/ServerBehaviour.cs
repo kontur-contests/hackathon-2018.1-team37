@@ -55,7 +55,7 @@ public class ServerBehaviour : NetworkBehaviour
     public PlayerState[] ApplyActions()
     {
         PlayerActionStruct[] playerActions = new PlayerActionStruct[2];
-        for (int i = 0; i < players[0].GetComponent<PlayerController>().SelectedCards.Length; i++)
+        for (int i = 0; i < players[0].GetComponent<PlayerController>().SelectedCards.Count; i++)
         {
             for (int j = 0; j < 2; j++)
             {
