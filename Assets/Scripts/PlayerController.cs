@@ -25,7 +25,8 @@ public class PlayerController : NetworkBehaviour {
     [ClientRpc]
     public void Rpc_ShaffleCards()
     {
-           
+
+        Cmd_SetReady(false);
 
         for(int i=0; i<4; i++)
         {
