@@ -75,9 +75,10 @@ MonoBehaviour:
   cardDesk: {fileID: 0}
   AvailableCards: 
   playerState: 0
+  SelectedCards: 
   _maxHealth: 10
   ready: 0
-  Health: 0
+  Health: 10
 --- !u!114 &114647843196020234
 MonoBehaviour:
   m_ObjectHideFlags: 1

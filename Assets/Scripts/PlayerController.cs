@@ -84,7 +84,7 @@ public class PlayerController : NetworkBehaviour {
     }
 
     
-    public int[] SelectedCards;
+    public SyncListInt SelectedCards;
     
     public int _maxHealth = 10;
 
@@ -108,7 +108,19 @@ public class PlayerController : NetworkBehaviour {
         }
     }
 
-  
+    [Command]
+    private void Cmd_InitSelectedCards()
+    {
+        SelectedCards = new SyncListInt();
+        for (int i = 0; i < 4; i++)
+            SelectedCards.Add(-1);
+    }
+
+    [Command]
+    private void Cmd_SetSelectedCard(int index, int value)
+    {
+        SelectedCards[index] = value;
+    }
 
 
     // Use this for initialization
@@ -120,10 +132,8 @@ public class PlayerController : NetworkBehaviour {
         {
             cardSockets[i] = GameObject.Find("Socket"+(i+1).ToString());
         }
-        SelectedCards = new int[4];
-        for (int i = 0; i < 4; i++)
-            SelectedCards[i] = -1;
         AvailableCards = new int[4];
+        Cmd_InitSelectedCards();
         animator = GetComponent<Animator>();
         animator.SetTrigger("NoDamaged");
         Cmd_SetReady(false);
@@ -150,12 +160,12 @@ public class PlayerController : NetworkBehaviour {
     {
         if (SelectedCards[socketIndex] == -1)
         {
-            SelectedCards[socketIndex] = AvailableCards[socketIndex];
+            Cmd_SetSelectedCard(socketIndex, AvailableCards[socketIndex]);
             cardSockets[socketIndex].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[socketIndex]]._SelectedImage;
         }
         else
         {
-            SelectedCards[socketIndex] = -1;
+            Cmd_SetSelectedCard(socketIndex, -1);
             cardSockets[socketIndex].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[socketIndex]]._NotSelectedImage;
         }
 
