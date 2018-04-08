@@ -49,7 +49,7 @@ public class PlayerController : NetworkBehaviour {
                 Debug.Log(cardDesk.cardDesk[AvailableCards[i]]._cardName);
                 cardSockets[i].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[i]]._NotSelectedImage;
             }
-            animator.SetTrigger("Attack");
+            
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
         }
@@ -206,7 +206,7 @@ public class PlayerController : NetworkBehaviour {
         {
             if (m_ShotAxis == false)
             {
-
+                animator.SetTrigger("Attack");
                 Cmd_FinishRound();
                 Debug.Log("RT");
 
