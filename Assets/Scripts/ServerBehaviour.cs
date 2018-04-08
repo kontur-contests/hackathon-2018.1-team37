@@ -97,6 +97,7 @@ public class ServerBehaviour : NetworkBehaviour
                 playerStates[j] = PlayerState.Damaged;
             else
                 playerStates[j] = PlayerState.NoDamaged;
+            players[j].GetComponent<PlayerController>().Health = playerHP;
         }
         return playerStates;
     }
