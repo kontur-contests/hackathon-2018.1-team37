@@ -42,8 +42,7 @@ public class PlayerController : NetworkBehaviour {
             }
             AvailableCards[i] = index;
         }
-        for (int i = 0; i < 4; i++)
-            SelectedCards[i] = -1;    
+        Cmd_InitSelectedCards(); 
         for (int i=0; i<4; i++)
         {
             cardSockets[i].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[i]]._NotSelectedImage;
@@ -111,6 +110,7 @@ public class PlayerController : NetworkBehaviour {
     [Command]
     private void Cmd_InitSelectedCards()
     {
+        SelectedCards.Clear();
         for (int i = 0; i < 4; i++)
             SelectedCards.Add(-1);
     }
