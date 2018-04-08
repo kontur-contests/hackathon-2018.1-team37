@@ -113,28 +113,31 @@ public class ServerBehaviour : NetworkBehaviour
 
     // Update is called once per frame
     void Update () {
-        if (state.Equals(State.Start) || state.Equals(State.Animation))
+        if (isServer)
         {
-            bool pl2ready = players[1].GetComponent<PlayerController>().ready;
-            bool pl1ready = players[0].GetComponent<PlayerController>().ready;
-            if (pl1ready && pl2ready)
+            if (state.Equals(State.Start) || state.Equals(State.Animation))
             {
-                Debug.Log("Both true");
-                StartRound();
+                bool pl2ready = players[1].GetComponent<PlayerController>().ready;
+                bool pl1ready = players[0].GetComponent<PlayerController>().ready;
+                if (pl1ready && pl2ready)
+                {
+                    Debug.Log("Both true");
+                    StartRound();
+                }
             }
-        }
-        else if (state.Equals(State.Round))
-        {
-            if(endTime < Time.fixedTime)
+            else if (state.Equals(State.Round))
             {
-                FinishRound();
+                if (endTime < Time.fixedTime)
+                {
+                    FinishRound();
+                }
             }
-        }
-        else if (state.Equals(State.Finish))
-        {
-            foreach (GameObject player in players)
+            else if (state.Equals(State.Finish))
             {
-                player.GetComponent<PlayerController>().Rpc_Finish();
+                foreach (GameObject player in players)
+                {
+                    player.GetComponent<PlayerController>().Rpc_Finish();
+                }
             }
         }
 	}

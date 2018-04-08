@@ -10,7 +10,7 @@ public class PlayerController : NetworkBehaviour {
     public GameObject[] cardSockets;
     
     public CardDesk cardDesk;
-    public int[] AvailableCards;
+    private int[] AvailableCards;
 
     private Animator animator;
 
@@ -45,6 +45,7 @@ public class PlayerController : NetworkBehaviour {
         Cmd_InitSelectedCards(); 
         for (int i=0; i<4; i++)
         {
+            Debug.Log(cardDesk.cardDesk[AvailableCards[i]]._cardName);
             cardSockets[i].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[i]]._NotSelectedImage;
         }
 
