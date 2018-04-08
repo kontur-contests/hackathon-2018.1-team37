@@ -76,7 +76,10 @@ public class PlayerController : NetworkBehaviour {
     [ClientRpc]
     public void Rpc_Finish()
     {
-
+        if (!IsAlive)
+            animator.SetTrigger("Dead");
+        else
+            animator.SetTrigger("NoDamaged");
     }
 
     public int ID {
@@ -151,7 +154,7 @@ public class PlayerController : NetworkBehaviour {
 
         if(isLocalPlayer)
             GetPlayerInput();
-                
+              
 
 
     }
@@ -225,6 +228,7 @@ public class PlayerController : NetworkBehaviour {
     public void Cmd_FinishRound()
     {
         GameObject.Find("GameServer").GetComponent<ServerBehaviour>().FinishRound();
+        Cmd_InitSelectedCards();
     }
 
     [Command]

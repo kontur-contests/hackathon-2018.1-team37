@@ -111,6 +111,9 @@ public class ServerBehaviour : NetworkBehaviour
             state = State.Finish;
     }
 
+
+
+    bool isFinished = false;
     // Update is called once per frame
     void Update () {
         if (isServer)
@@ -132,8 +135,9 @@ public class ServerBehaviour : NetworkBehaviour
                     FinishRound();
                 }
             }
-            else if (state.Equals(State.Finish))
+            else if (state.Equals(State.Finish) && !isFinished)
             {
+                isFinished = true;
                 foreach (GameObject player in players)
                 {
                     player.GetComponent<PlayerController>().Rpc_Finish();
