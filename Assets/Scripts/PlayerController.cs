@@ -49,6 +49,7 @@ public class PlayerController : NetworkBehaviour {
                 Debug.Log(cardDesk.cardDesk[AvailableCards[i]]._cardName);
                 cardSockets[i].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[i]]._NotSelectedImage;
             }
+            animator.SetTrigger("Attack");
         }
     }
 
@@ -229,12 +230,14 @@ public class PlayerController : NetworkBehaviour {
     {
         GameObject.Find("GameServer").GetComponent<ServerBehaviour>().FinishRound();
         Cmd_InitSelectedCards();
+
     }
 
     [Command]
     public void Cmd_SetReady(bool status)
     {
         ready = status;
+        
     }
 
 }

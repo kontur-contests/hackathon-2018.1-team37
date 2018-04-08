@@ -11,9 +11,11 @@ public class UIController : MonoBehaviour {
 
     public Text blueHP;
     public Text redHP;
+    public Text blueReady;
+    public Text redReady;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         
     }
 	
@@ -26,6 +28,21 @@ public class UIController : MonoBehaviour {
             redCowboy = redGameobj.GetComponent<PlayerController>();
             blueHP.text = blueCowboy.Health.ToString();
             redHP.text = redCowboy.Health.ToString();
+
+            if (blueGameobj.GetComponent<PlayerController>().ready)
+            {
+                blueReady.text = "Ready";
+            }
+            else
+                blueReady.text = "Not Ready";
+
+            if (redGameobj.GetComponent<PlayerController>().ready)
+            {
+                redReady.text = "Ready";
+            }
+            else
+                redReady.text = "Not Ready";
+
         }
 
 
