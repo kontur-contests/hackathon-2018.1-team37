@@ -88,7 +88,7 @@ public class ServerBehaviour : NetworkBehaviour
         for (int j = 0; j < 2; j++)
         {
             int playerHP = players[j].GetComponent<PlayerController>().Health -
-            Mathf.Max(j, playerActions[j].damage - playerActions[j].evade) +
+            Mathf.Max(0, playerActions[j].damage - playerActions[j].evade) +
             playerActions[j].heal;
             playerHP = Mathf.Min(players[j].GetComponent<PlayerController>()._maxHealth, playerHP);
             if (playerHP > players[j].GetComponent<PlayerController>().Health)
