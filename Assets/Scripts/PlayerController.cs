@@ -25,30 +25,31 @@ public class PlayerController : NetworkBehaviour {
     [ClientRpc]
     public void Rpc_ShaffleCards()
     {
-
-        Cmd_SetReady(false);
-
-        for(int i=0; i<4; i++)
+        if (isLocalPlayer)
         {
-           
-            int temp = Random.Range(0, (int)cardDesk.totalSum);
-            int index = 0;
-            uint sum = cardDesk.cardDesk[index]._chanceCoefficient;
-            
-            while (sum < temp)
+            Cmd_SetReady(false);
+
+            for (int i = 0; i < 4; i++)
             {
-                index++;
-                sum+= cardDesk.cardDesk[index]._chanceCoefficient;
-            }
-            AvailableCards[i] = index;
-        }
-        Cmd_InitSelectedCards(); 
-        for (int i=0; i<4; i++)
-        {
-            Debug.Log(cardDesk.cardDesk[AvailableCards[i]]._cardName);
-            cardSockets[i].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[i]]._NotSelectedImage;
-        }
 
+                int temp = Random.Range(0, (int)cardDesk.totalSum);
+                int index = 0;
+                uint sum = cardDesk.cardDesk[index]._chanceCoefficient;
+
+                while (sum < temp)
+                {
+                    index++;
+                    sum += cardDesk.cardDesk[index]._chanceCoefficient;
+                }
+                AvailableCards[i] = index;
+            }
+            Cmd_InitSelectedCards();
+            for (int i = 0; i < 4; i++)
+            {
+                Debug.Log(cardDesk.cardDesk[AvailableCards[i]]._cardName);
+                cardSockets[i].GetComponent<SpriteRenderer>().sprite = cardDesk.cardDesk[AvailableCards[i]]._NotSelectedImage;
+            }
+        }
     }
 
 
