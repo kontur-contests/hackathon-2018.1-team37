@@ -83,8 +83,8 @@ public class PlayerController : NetworkBehaviour {
         set;
     }
 
-    
-    public SyncListInt SelectedCards;
+    [SyncVar]
+    public SyncListInt SelectedCards = new SyncListInt();
     
     public int _maxHealth = 10;
 
@@ -111,7 +111,6 @@ public class PlayerController : NetworkBehaviour {
     [Command]
     private void Cmd_InitSelectedCards()
     {
-        SelectedCards = new SyncListInt();
         for (int i = 0; i < 4; i++)
             SelectedCards.Add(-1);
     }
