@@ -104,11 +104,14 @@ public class ServerBehaviour : NetworkBehaviour
 
     public void FinishRound()
     {
-        PlayerState[] nextStates = ApplyActions();  
-        if (players[0].GetComponent<PlayerController>().IsAlive && players[1].GetComponent<PlayerController>().IsAlive)
-            Animate(nextStates);
-        else
-            state = State.Finish;
+        if (state.Equals(State.Round))
+        {
+            PlayerState[] nextStates = ApplyActions();
+            if (players[0].GetComponent<PlayerController>().IsAlive && players[1].GetComponent<PlayerController>().IsAlive)
+                Animate(nextStates);
+            else
+                state = State.Finish;
+        }
     }
 
 

@@ -206,7 +206,7 @@ public class PlayerController : NetworkBehaviour {
         {
             if (m_ShotAxis == false)
             {
-                animator.SetTrigger("Attack");
+                
                 Cmd_FinishRound();
                 Debug.Log("RT");
 
